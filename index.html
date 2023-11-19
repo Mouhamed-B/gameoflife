@@ -11,16 +11,14 @@
         <h1 class="w-50">Game of Life</h1>
         <div class="row w-50">
             <div>
-                <label for="cols"><h3>Columns</h3></label>
-                <input type="number" id="cols" width="10%">
-            </div>
-            <div>
-                <label for="rows"><h3>Rows</h3></label>
-                <input type="number" id="rows" width="10%">
-            </div>
-            <div>
                 <label for="zoom"><h3>Zoom</h3></label>
                 <input type="range" id="zoom" value="12" max="12" min="5" width="10%">
+            </div>
+        </div>
+        <div class="row w-50">
+            <div>
+                <label for="zoom"><h3>Generation</h3></label>
+                <div id="count"></div>
             </div>
         </div>
     </header>
@@ -33,9 +31,6 @@
         <button class="game-button" id="gameReset">Reset</button>
         <button class="game-button" id="gameNext">Next</button>
         <button class="game-button" id="gameClear">Clear</button>
-    </div>
-    <div class="game-menu">
-        <div>count:</div><div id="count"></div>
     </div>
     <script type="module" src="index.js"></script>
 </body>

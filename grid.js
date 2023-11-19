@@ -13,7 +13,7 @@ export function copyGrid(originalGrid){
     return originalGrid.map(row => row.slice())
 }
 
-export function scaleGrid(canvas,ctx){
+export function scaleGrid(container,canvas,ctx){
     const dpr = window.devicePixelRatio;
     const rect = canvas.getBoundingClientRect();
 
@@ -23,6 +23,7 @@ export function scaleGrid(canvas,ctx){
 
     // Scale the context to ensure correct drawing operations
     ctx.scale(dpr, dpr);
+    
 }
 
 

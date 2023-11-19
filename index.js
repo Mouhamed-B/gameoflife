@@ -5,28 +5,32 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get the canvas element and its context
     const canvas = document.getElementById('gameCanvas');
     const canvasContainer = document.getElementById('canvasContainer');
+    
+    // Game control buttons
     const startButton = document.getElementById('gameStart');
     const stopButton = document.getElementById('gameStop');
     const resetButton = document.getElementById('gameReset');
     const nextButton = document.getElementById('gameNext');
     const clearButton = document.getElementById('gameClear');
+    const zoomInput = document.getElementById('zoom');
 
+    // setup the container
     const ctx = canvas.getContext('2d')
-    scaleGrid(canvas,ctx)
-    canvasContainer.scrollLeft =  (canvasContainer.scrollWidth - canvasContainer.clientWidth ) / 2;
-    canvasContainer.scrollTop =  (canvasContainer.scrollHeight - canvasContainer.clientHeight ) / 2;
+    scaleGrid(canvasContainer,canvas,ctx)
+    
+    // Define grid parameters
     let gameStarted = false
     let nextCount = 0
-    // Define grid parameters
-    const rows = Math.floor(parseInt(canvas.getAttribute('height'))/10);
-    const cols = Math.floor(parseInt(canvas.getAttribute('width'))/10);
-    const cellSize = 5;
+    let cellSize = 12;
+    let rows = Math.floor(parseInt(canvas.getAttribute('height'))/5);
+    let cols = Math.floor(parseInt(canvas.getAttribute('width'))/5);
 
     // Create the initial grid
     let grid = createGrid(rows, cols);
     let initialGrid = [];
     let interval;
-    // Initial draw of the grid
+
+
     drawGrid(canvas, grid, cellSize);
 
     canvas.addEventListener('click', (event) => {
@@ -44,6 +48,13 @@ document.addEventListener('DOMContentLoaded', function () {
         // Redraw the grid
         drawGrid(canvas, grid, cellSize);
     });
+
+    //input listeners
+    zoomInput.addEventListener('change', (event) => {
+        console.log(event.target.value)
+        cellSize = parseInt(event.target.value)
+        if(!gameStarted) drawGrid(canvas, grid, cellSize)
+    })
 
 
     // Buttons listeners

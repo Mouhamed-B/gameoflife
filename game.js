@@ -1,13 +1,7 @@
 import { createGrid } from "./grid.js"
 
-export function getCellNumber(row, col){
-    return row+''+col
-}
-
 export function checkCell(grid, row, col) {
     let S = 0
-    const rows = grid.length
-    const cols = grid[0].length
 
     for (let i = row-1; i <= row+1; i++) {
         if(grid[i]){

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game of life</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header class="row">
+        <h1 class="w-50">Game of Life</h1>
+        <div class="row w-50">
+            <div>
+                <label for="cols"><h3>Columns</h3></label>
+                <input type="number" id="cols" width="10%">
+            </div>
+            <div>
+                <label for="rows"><h3>Rows</h3></label>
+                <input type="number" id="rows" width="10%">
+            </div>
+            <div>
+                <label for="zoom"><h3>Zoom</h3></label>
+                <input type="range" id="zoom" value="12" max="12" min="5" width="10%">
+            </div>
+        </div>
+    </header>
+    <div class="container" id="canvasContainer">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    <div class="game-menu">
+        <button class="game-button" id="gameStart">Start</button>
+        <button class="game-button" id="gameStop" disabled>Stop</button>
+        <button class="game-button" id="gameReset">Reset</button>
+        <button class="game-button" id="gameNext">Next</button>
+        <button class="game-button" id="gameClear">Clear</button>
+    </div>
+    <div class="game-menu">
+        <div>count:</div><div id="count"></div>
+    </div>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
